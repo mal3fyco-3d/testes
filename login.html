@@ -61,19 +61,6 @@
                 });
         });
 
-        // Função para registrar
-        document.getElementById('register-btn').addEventListener('click', () => {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            auth.createUserWithEmailAndPassword(email, password)
-                .then(() => {
-                    window.location.href = 'index.html'; // Redireciona após registro
-                })
-                .catch((error) => {
-                    document.getElementById('error-message').textContent = error.message;
-                });
-        });
     </script>
 </body>
 </html>
