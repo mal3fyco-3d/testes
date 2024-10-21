@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Conteúdo do formulário de registro -->
+    <div class="content">
+        <h1>Criar Conta</h1>
+        <form id="register-form">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Registrar</button>
+            <p id="error-message" style="color: red;"></p>
+        </form>
+    </div>
+
+    <script>
+      
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyAVkw0_eJ3voju4FRaO6QEOO3oJgH4_V9Y",
+    authDomain: "d4u-80b32.firebaseapp.com",
+    projectId: "d4u-80b32",
+    storageBucket: "d4u-80b32.appspot.com",
+    messagingSenderId: "428637666189",
+    appId: "1:428637666189:web:a0f160148e66382ba51bc4",
+    measurementId: "G-MCB3DBVLN2"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+        // Função para registrar
+        const registerForm = document.getElementById('register-form');
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .then(() => {
+                    window.location.href = 'login.html'; // Redireciona para a página de login após registro
+                })
+                .catch((error) => {
+                    document.getElementById('error-message').textContent = error.message;
+                });
+        });
+    </script>
+</body>
+</html>
