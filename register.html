@@ -27,8 +27,8 @@
 
     <script>
       
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+      import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
   
   const firebaseConfig = {
     apiKey: "AIzaSyAVkw0_eJ3voju4FRaO6QEOO3oJgH4_V9Y",
@@ -41,8 +41,8 @@
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
         // Função para registrar
         const registerForm = document.getElementById('register-form');
